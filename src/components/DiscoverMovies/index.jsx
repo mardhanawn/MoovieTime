@@ -1,13 +1,15 @@
-import { Button, Spin } from 'antd'
+import { Button } from 'antd'
 import moment from 'moment'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import Card from '../../components/Card'
+
+import Card from '../Card'
+import Spinner from '../Spinner'
 import { getListPopular, getListReleaseDate } from '../../services/api/tmdb'
 
 function DiscoverMovies() {
     const [category, setCategory] = useState('popular')
-    const [listMovie, setListMovie] = useState()
+    const [listMovie, setListMovie] = useState(null)
 
     useQuery(['dataListPopular', 'movies'], () => getListPopular(), {
         refetchOnWindowFocus: false,
@@ -20,8 +22,6 @@ function DiscoverMovies() {
         onSuccess: (data) => setListMovie(data),
         enabled: category === 'release_date',
     })
-
-    if (!listMovie) <Spin />
 
     return (
         <div className="discover container-lg">
@@ -56,21 +56,24 @@ function DiscoverMovies() {
                     </div>
                 </div>
             </div>
-            <div className="row row-cols-7 row-cols-sm-2 row-cols-md-5">
-                {listMovie?.results.map((movie) => {
-                    const yearRelease = moment(movie.release_date).format('YYYY')
-                    return (
-                        <div key={movie.id} className="col">
-                            <Card
-                                name={movie.original_title}
-                                year={yearRelease}
-                                rating={movie.vote_average}
-                                poster={movie.poster_path}
-                            />
-                        </div>
-                    )
-                })}
-            </div>
+            {!listMovie && <Spinner />}
+            {listMovie && (
+                <div className="row row-cols-7 row-cols-sm-2 row-cols-md-5">
+                    {listMovie?.results.map((movie) => {
+                        const yearRelease = moment(movie.release_date).format('YYYY')
+                        return (
+                            <div key={movie.id} className="col">
+                                <Card
+                                    name={movie.original_title}
+                                    year={yearRelease}
+                                    rating={movie.vote_average}
+                                    poster={movie.poster_path}
+                                />
+                            </div>
+                        )
+                    })}
+                </div>
+            )}
         </div>
     )
 }

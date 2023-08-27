@@ -7,7 +7,7 @@ import 'antd/dist/antd.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Footer from './components/Footer'
-import DiscoverMovies from './pages/DiscoverMovies'
+import Home from './pages/Home'
 
 import { defaultQueryOption } from './utility/reactQueryHelper'
 // import App from './App.jsx'
@@ -29,7 +29,7 @@ const root = createRoot(document.getElementById('root'))
 root.render(
     <QueryClientProvider client={queryClient}>
         {/* <App /> */}
-        <DiscoverMovies />
-            <Footer />
+        <Home />
+        <Footer />
     </QueryClientProvider>,
 )
