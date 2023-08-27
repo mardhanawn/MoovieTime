@@ -1,7 +1,7 @@
 import { Card } from 'antd'
 // const { Meta } = Card
 
-function CardComponent({ name, year, rating }) {
+function CardComponent({ name, year, rating, poster }) {
     return (
         <Card
             className="mb-4"
@@ -9,7 +9,7 @@ function CardComponent({ name, year, rating }) {
             cover={
                 <img
                     alt={name}
-                    src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+                    src={`https://image.tmdb.org/t/p/w500${poster}`}
                     style={{ maxWidth: '-webkit-fill-available' }}
                 />
             }
@@ -18,7 +18,9 @@ function CardComponent({ name, year, rating }) {
                 <h6 className="mt-3 mb-1">
                     {name.length > 18 ? `${name.substring(0, 18)}...` : name}
                 </h6>
-                <p>{year}</p>
+                <p>
+                    {year} Rating {rating}
+                </p>
             </div>
         </Card>
     )

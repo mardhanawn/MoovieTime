@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-export const baseURL = process.env.REACT_APP_BASEURL_TMDB
+import { baseURL } from '../../utility/GlobalConst'
 
 const apiClient = axios.create({ baseURL })
 
