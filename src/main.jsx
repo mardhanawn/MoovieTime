@@ -1,5 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 // set UI libyary
@@ -8,9 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import Detail from './pages/Detail'
 
 import { defaultQueryOption } from './utility/reactQueryHelper'
-// import App from './App.jsx'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -26,10 +27,22 @@ const queryClient = new QueryClient({
 
 const root = createRoot(document.getElementById('root'))
 
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Home />,
+    },
+    {
+        path: '/detail/:id',
+        element: <Detail />,
+    },
+])
+
 root.render(
-    <QueryClientProvider client={queryClient}>
-        {/* <App /> */}
-        <Home />
-        <Footer />
-    </QueryClientProvider>,
+    <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+            <Footer />
+        </QueryClientProvider>
+    </React.StrictMode>,
 )
