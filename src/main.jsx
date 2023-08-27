@@ -1,11 +1,26 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import "bootstrap/dist/css/bootstrap.min.css"
+import { createRoot } from 'react-dom/client'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { defaultQueryOption } from './utility/reactQueryHelper'
 import App from './App.jsx'
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            ...defaultQueryOption,
+        },
+        mutations: {
+            ...defaultQueryOption,
+        },
+    },
+})
+
+const root = createRoot(document.getElementById('root'))
+
+root.render(
+    <QueryClientProvider client={queryClient}>
         <App />
-    </React.StrictMode>,
+    </QueryClientProvider>,
 )
