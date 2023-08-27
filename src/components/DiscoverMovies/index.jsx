@@ -59,11 +59,12 @@ function DiscoverMovies() {
             {!listMovie && <Spinner />}
             {listMovie && (
                 <div className="row row-cols-7 row-cols-sm-2 row-cols-md-5">
-                    {listMovie?.results.map((movie) => {
+                    {listMovie.results.map((movie) => {
                         const yearRelease = moment(movie.release_date).format('YYYY')
                         return (
                             <div key={movie.id} className="col">
                                 <Card
+                                    id={movie.id}
                                     name={movie.original_title}
                                     year={yearRelease}
                                     rating={movie.vote_average}
