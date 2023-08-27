@@ -1,9 +1,9 @@
 import { Card } from 'antd'
-// const { Meta } = Card
 
 function CardComponent({ name, year, rating, poster }) {
     return (
         <Card
+            bordered={false}
             className="mb-4"
             hoverable="true"
             cover={
@@ -14,7 +14,7 @@ function CardComponent({ name, year, rating, poster }) {
                 />
             }
         >
-            <div style={{ color: 'white' }}>
+            <div style={{ color: '#ffffff' }}>
                 <h6 className="mt-3 mb-1">
                     {name.length > 18 ? `${name.substring(0, 18)}...` : name}
                 </h6>

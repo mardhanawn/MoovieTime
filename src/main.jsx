@@ -1,9 +1,16 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
+
+// set UI libyary
+import 'antd/dist/antd.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+import Footer from './components/Footer'
+import DiscoverMovies from './pages/DiscoverMovies'
+
 import { defaultQueryOption } from './utility/reactQueryHelper'
-import App from './App.jsx'
+// import App from './App.jsx'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -21,6 +28,8 @@ const root = createRoot(document.getElementById('root'))
 
 root.render(
     <QueryClientProvider client={queryClient}>
-        <App />
+        {/* <App /> */}
+        <DiscoverMovies />
+            <Footer />
     </QueryClientProvider>,
 )

@@ -11,3 +11,12 @@ export async function getListPopular() {
         return false
     })
 }
+
+export async function getListReleaseDate() {
+    return apiTMDB.get(`/movie/upcoming${paramsApiKey}`).then((response) => {
+        if (response) {
+            return response.data
+        }
+        return false
+    })
+}
