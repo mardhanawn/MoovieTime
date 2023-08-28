@@ -1,11 +1,12 @@
 import { Card } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { color } from '../../utility/GlobalConst'
 
 function CardComponent({ id, name, year, rating, poster }) {
     const navigate = useNavigate()
 
     const onDetailMovie = (id) => {
-        navigate(`/detail/${id}`)
+        navigate(`/details/${id}`)
     }
 
     return (
@@ -22,7 +23,7 @@ function CardComponent({ id, name, year, rating, poster }) {
                     />
                 }
             >
-                <div style={{ color: '#ffffff' }}>
+                <div style={{ color: color.white }}>
                     <h6 className="mt-3 mb-1">
                         {name.length > 18 ? `${name.substring(0, 18)}...` : name}
                     </h6>

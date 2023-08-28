@@ -5,7 +5,6 @@ import { useQuery } from 'react-query'
 import Spinner from '../Spinner'
 import CardReview from '../Card/CardReview'
 import NotFound from '../NotFound'
-// import reviews from '../../dummy/reviews.json'
 
 import { getReviewMovie } from '../../services/api/tmdb'
 

@@ -1,4 +1,5 @@
 import { Avatar, Card } from 'antd'
+import { color } from '../../utility/GlobalConst'
 
 const { Meta } = Card
 
@@ -10,7 +11,7 @@ function CardReview({ author, date, content }) {
                 title={author}
                 description={date}
             />
-            <div style={{ color: '#242424', backgroundColor: '#ffffff' }}>
+            <div style={{ color: color.darkgrey, backgroundColor: color.white }}>
                 <p className="p-4">{content}</p>
             </div>
         </Card>

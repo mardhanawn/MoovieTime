@@ -24,7 +24,7 @@ function DiscoverMovies() {
     })
 
     return (
-        <div className="discover container-lg">
+        <div className="container-lg">
             <div className="row">
                 <div className="col">
                     <h4 className="mb-4">Discover Movies</h4>

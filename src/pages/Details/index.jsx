@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 
-import ReviewMovies from '../../components/ReviewsMovies'
 import RecommendationMovies from '../../components/RecommendationMovies'
+import ReviewMovies from '../../components/ReviewsMovies' 
 import { getDetailMovie } from '../../services/api/tmdb'
 
-function PagesDetail() {
+function PagesDetails() {
     const { id } = useParams()
     const [detailMovie, setDetailMovie] = useState(null)
 
@@ -15,7 +15,7 @@ function PagesDetail() {
         onSuccess: (data) => setDetailMovie(data),
         enabled: !!id,
     })
-    // console.log('detailMovie PagesDetail', detailMovie)
+    console.log('detailMovie PagesDetail', detailMovie)
 
     return (
         <>
@@ -32,4 +32,4 @@ function PagesDetail() {
     )
 }
 
-export default PagesDetail
+export default PagesDetails

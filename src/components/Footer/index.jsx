@@ -1,4 +1,7 @@
 import MoovieTimeBlack from '../../assets/MoovieTimeBlack.png'
+import { color } from '../../utility/GlobalConst'
+
+const colorDarkGray = { color: color.darkgray }
 
 function Footer() {
     return (
@@ -6,19 +9,19 @@ function Footer() {
             <div className="row">
                 <div
                     className="col-lg-4 mt-lg-0 mt-md-5 d-flex d-md-flex justify-content-center"
-                    style={{ color: '#929292' }}
+                    style={colorDarkGray}
                 >
                     2021 MoovieTime. All right reserved
                 </div>
                 <div
                     className="col-lg-4 mt-5 mt-lg-0 mt-md-5 d-flex d-md-flex justify-content-center"
-                    style={{ color: '#929292' }}
+                    style={colorDarkGray}
                 >
-                    <img src={MoovieTimeBlack} style={{ color: '#929292' }} />
+                    <img src={MoovieTimeBlack} style={colorDarkGray} />
                 </div>
                 <div
                     className="col-lg-4 mt-5 mt-lg-0 mt-md-5 d-flex d-md-flex justify-content-center"
-                    style={{ color: '#929292' }}
+                    style={colorDarkGray}
                 >
                     Made with React by ardhanaawahyu
                 </div>

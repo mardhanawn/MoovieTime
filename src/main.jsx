@@ -7,9 +7,11 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import 'antd/dist/antd.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import Detail from './pages/Detail'
+import Movies from './pages/Movies'
+import Details from './pages/Details'
 import PagesError404 from './pages/404'
 
 import { defaultQueryOption } from './utility/reactQueryHelper'
@@ -34,8 +36,12 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: '/detail/:id',
-        element: <Detail />,
+        path: '/movies',
+        element: <Movies />,
+    },
+    {
+        path: '/details/:id',
+        element: <Details />,
     },
     {
         path: '*',
@@ -50,6 +56,7 @@ const router = createBrowserRouter([
 root.render(
     <React.StrictMode>
         <QueryClientProvider client={queryClient}>
+            <Header />
             <RouterProvider router={router} />
             <Footer />
         </QueryClientProvider>

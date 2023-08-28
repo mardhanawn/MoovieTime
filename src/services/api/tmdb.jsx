@@ -18,6 +18,15 @@ export async function getListReleaseDate() {
     })
 }
 
+export async function getListRating() {
+    return apiTMDB.get(`/movie/top_rated`).then((response) => {
+        if (response) {
+            return response.data
+        }
+        return false
+    })
+}
+
 export async function getDetailMovie(id) {
     return apiTMDB.get(`movie/${id}`).then((response) => {
         if (response) {
