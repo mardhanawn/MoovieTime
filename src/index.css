@@ -63,6 +63,15 @@ a {
   color: red !important;
 }
 
+.border-right {
+  border-right: 1px solid;
+}
+
+.font-size-12 {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
 .ant-select.ant-select-single.ant-select-show-arrow {
   > .ant-select-selector {
     border: none;

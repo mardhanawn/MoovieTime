@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 
+import PosterMovie from '../../components/PosterMovie'
 import RecommendationMovies from '../../components/RecommendationMovies'
-import ReviewMovies from '../../components/ReviewsMovies' 
+import ReviewMovies from '../../components/ReviewsMovies'
 import { getDetailMovie } from '../../services/api/tmdb'
 
 function PagesDetails() {
@@ -15,17 +16,10 @@ function PagesDetails() {
         onSuccess: (data) => setDetailMovie(data),
         enabled: !!id,
     })
-    console.log('detailMovie PagesDetail', detailMovie)
 
     return (
         <>
-            <div className="discover container-lg">
-                <div className="row">
-                    <div className="col">
-                        <h4 className="mb-4">Detail Movie</h4>
-                    </div>
-                </div>
-            </div>
+            <PosterMovie data={detailMovie} />
             <ReviewMovies id={id} />
             <RecommendationMovies id={id} />
         </>
