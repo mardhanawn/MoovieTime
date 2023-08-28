@@ -38,7 +38,34 @@ body {
 
 .ant-btn-dangerous.ant-btn-primary {
   /* color: red; */
-  background-color: red;
+  background-color: red !important;
+}
+
+.ant-card-meta {
+  background-color: #ffffff;
+  > .ant-card-meta-avatar {
+    padding: 1rem;
+    padding-right: 24px;
+    > .ant-avatar.ant-avatar-circle {
+      height: 60px;
+      width: 60px;
+    }
+  }
+
+  > .ant-card-meta-detail {
+    padding: 1rem 1rem 1rem 0;
+    > .ant-card-meta-title {
+      margin-bottom: 0;
+    }
+    > .ant-card-meta-description {
+      font-size: 12px;
+    }
+  }
+}
+
+
+.text-danger {
+  color: red !important;
 }
 
 

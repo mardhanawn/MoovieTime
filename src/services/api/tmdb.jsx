@@ -18,12 +18,32 @@ export async function getListReleaseDate() {
     })
 }
 
+export async function getDetailMovie(id) {
+    return apiTMDB.get(`movie/${id}`).then((response) => {
+        if (response) {
+            return response.data
+        }
+        return false
+    })
+}
+
 export async function getRecommendationMovie(id) {
     return apiTMDB.get(`movie/${id}/recommendations`).then((response) => {
         if (response) {
             const { results } = response.data
             const top5Recommendation = results.slice(0, 5)
             return top5Recommendation
+        }
+        return false
+    })
+}
+
+export async function getReviewMovie(id) {
+    return apiTMDB.get(`movie/${id}/reviews`).then((response) => {
+        if (response) {
+            const { results } = response.data
+            const top2Review = results.slice(0, 2)
+            return top2Review
         }
         return false
     })

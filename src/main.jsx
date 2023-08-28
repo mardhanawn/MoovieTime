@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Detail from './pages/Detail'
+import PagesError404 from './pages/404'
 
 import { defaultQueryOption } from './utility/reactQueryHelper'
 import './index.css'
@@ -35,6 +36,14 @@ const router = createBrowserRouter([
     {
         path: '/detail/:id',
         element: <Detail />,
+    },
+    {
+        path: '*',
+        element: <PagesError404 />,
+    },
+    {
+        path: '/404',
+        element: <PagesError404 />,
     },
 ])
 
